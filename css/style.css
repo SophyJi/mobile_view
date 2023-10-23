@@ -14,11 +14,10 @@ h1 {
     border-radius: 20px;
     border: 3px solid #CD853F;  
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    
-   
     margin: 30px auto; 
-    max-width: 30%; 
+    max-width: 90%; 
 }
+
 
 
 @keyframes flash {
@@ -30,17 +29,18 @@ h2 {
     font-size: 30px;
     font-family: sans-serif;
     text-align: center;
-    color: #8755d2;
+    color: #683da8;
     font-weight: bold; 
 
     padding: 10px 20px;
-    background-color: #f8dcd7; 
+    background-color: #fdf0ee; 
     border-radius: 10px;
     
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
     animation: flash 2s infinite;
 }
+
 
 
 @media (prefers-reduced-motion: reduce) {
@@ -105,10 +105,18 @@ li:hover {
     left: -500px;
 }
 
+.navigation {
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    padding: 10px 0;
+}
+
 .navigation li {
     display: inline-block;
     margin: 0 5px; 
 }
+
 
 .navigation a {
     font-size: 18px;
@@ -127,50 +135,37 @@ li:hover {
     color: #f4f4f4; 
 }
 
+.pg {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: start;
+}
 
-@media (min-width: 780px) { 
+.pg p {
+    text-align: center;
+    font-style: italic;
+    align-self: center;
+}
+
+
+@media (max-width: 700px) { 
     .navigation a {
         font-size: 20px;
         padding: 15px 25px;
     }
-    .pg{
-        display: grid;
+    .pg {
         grid-template-columns: repeat(2, 1fr); 
-        gap: 10px; 
+        gap: 10px;
     }
-    
-    .pg{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px; 
-        justify-items: center; 
-        align-items: start; 
+    h1 {
+        font-size: 30px;
+        padding: 10px 20px;
+        max-width: 95%;
     }
-    
-    .pg p {
-        text-align: center; 
-        font-style: italic; 
-        align-self: center;
-    }
-
 }
 
 .navigation li {
     margin: 0 10px;
 }
-
-.pg{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 20px; 
-    justify-items: center; 
-    align-items: start; 
-}
-
-.pg p {
-    text-align: center; 
-    font-style: italic; 
-    align-self: center;
-}
-
-
