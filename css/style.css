@@ -33,19 +33,27 @@ h2 {
     font-weight: bold; 
 
     padding: 10px 20px;
-    background-color: #fdf0ee; 
+    background-color: #d1f5ef; 
     border-radius: 10px;
     
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
     animation: flash 2s infinite;
 }
+.gif {
+    display: block;
+}
 
-
+.static {
+    display: none;
+}
 
 @media (prefers-reduced-motion: reduce) {
-    h2 {
-        animation: none;
+    .gif {
+       display: none;
+    }
+    .static{
+        display: block;
     }
 }
 
@@ -65,6 +73,9 @@ p {
     line-height:1.5;
 }
 
+.navigation li {
+    margin: 0 10px;
+}
 nav a.active{
     text-decoration: underline;
 }
@@ -98,12 +109,21 @@ li:hover {
     background-color: #e7ab76; 
 }
 
-
 #Skip {
-    text-transform: uppercase;
-    position : absolute;
-    left: -500px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgb(163, 30, 234);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: background-color 0.3s;
 }
+
+#Skip:focus {
+    background-color: #444; /* Color to change to on focus */
+}
+
 
 .navigation {
     display: flex; 
@@ -122,17 +142,21 @@ li:hover {
     font-size: 18px;
     display: inline-block;
     padding: 10px 20px; 
-    border: 2px solid #906dfb; 
     background-color: bisque; 
     color: #333; 
     text-decoration: none; 
-    border-radius: 5px; 
     transition: all 0.3s ease; 
 }
 
 .navigation a:hover {
     background-color: grey; 
     color: #f4f4f4; 
+}
+.pgpets {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 20px;
+    justify-items: center;
 }
 
 .pg {
@@ -152,8 +176,14 @@ li:hover {
 
 @media (max-width: 700px) { 
     .navigation a {
-        font-size: 20px;
+        font-size: 15px;
         padding: 15px 25px;
+    }
+    .pgpets {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
     }
     .pg {
         grid-template-columns: repeat(2, 1fr); 
@@ -164,22 +194,6 @@ li:hover {
         padding: 10px 20px;
         max-width: 95%;
     }
-}
-
-@media (min-width: 768px) {
-    .pg {
-      grid-template-columns: repeat(4, 1fr); /* 4 columns on tablets */
-      gap: 10px;
-    }
-    h1 {
-        font-size: 30px;
-        padding: 10px 20px;
-        max-width: 95%;
-    }
-}
-
-.navigation li {
-    margin: 0 10px;
 }
 
 /* Lightbox CSS */
@@ -240,4 +254,59 @@ li:hover {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+}
+
+
+@media (min-width: 710px) {
+    .navigation a {
+        font-size: 26px;
+        padding: 12px 24px;
+    }
+    .lightbox-zoom-animation {
+        animation: zoomIn 0.5s;
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+    #Skip:focus, #Skip:hover {
+        background-color: #555; 
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; /* Prevent text select */
+}
+
+.arrow.left {
+    left: 10%;
+    border-radius: 3px 0 0 3px;
+}
+
+.arrow.right {
+    right: 10%;
+    border-radius: 0 3px 3px 0;
+}
+
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
